@@ -1,1 +1,0 @@
-技术栈：React + TanStack Start + Tailwind CSS + Vite + Bun + SQLite

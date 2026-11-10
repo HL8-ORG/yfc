@@ -21,3 +21,5 @@ yarn.lock
 # SQLite 数据
 /data/*.db
 /data/*.db-*
+# 私有文档，不入远程仓库
+docs/
