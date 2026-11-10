@@ -1,0 +1,67 @@
+@import 'tailwindcss' source('../');
+
+@theme {
+  /* 水墨宣纸色系 */
+  --color-paper: #f7f2e8;
+  --color-paper-deep: #efe7d6;
+  --color-paper-card: #fdfaf3;
+  --color-ink: #2b2620;
+  --color-ink-soft: #5c5347;
+  --color-ink-faint: #8a7f70;
+  --color-cinnabar: #b03e2c;
+  --color-cinnabar-deep: #8f3021;
+  --color-cinnabar-mist: #f3ded7;
+  --color-jade: #46705a;
+  --color-jade-mist: #deeae2;
+
+  --font-classic: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+
+  --shadow-ink: 0 1px 3px rgb(43 38 32 / 0.08), 0 6px 18px rgb(43 38 32 / 0.07);
+  --shadow-card: 0 1px 2px rgb(43 38 32 / 0.06), 0 10px 28px rgb(43 38 32 / 0.09);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-ink-faint, currentcolor);
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    @apply bg-paper text-ink font-classic antialiased;
+  }
+
+  body {
+    background-image:
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgb(176 62 44 / 0.05), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgb(70 112 90 / 0.04), transparent);
+  }
+
+  .using-mouse * {
+    outline: none !important;
+  }
+}
+
+/* 卦符：爻的绘制 */
+.yao-bar {
+  @apply block h-[9px] rounded-[2px] bg-ink;
+}
+.yao--yin .yao-bar {
+  @apply w-[38%];
+}
+.yao--yang .yao-bar {
+  @apply w-full;
+}
+.yao--moving .yao-bar {
+  @apply bg-cinnabar;
+}
+.yao-dot {
+  @apply absolute -right-5 top-1/2 -translate-y-1/2 size-[7px] rounded-full bg-cinnabar;
+}
