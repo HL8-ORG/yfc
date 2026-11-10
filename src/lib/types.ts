@@ -24,6 +24,20 @@ export interface Hexagram {
   yaos: YaoLine[]
   upper: TrigramId
   lower: TrigramId
+  /** 白话讲卦（目前覆盖已精讲的卦，其余为 null） */
+  lecture?: Lecture | null
+}
+
+/** 白话讲卦：整理自视频讲稿（docs/drafts/draft2.md） */
+export interface Lecture {
+  /** 主题句 */
+  theme: string
+  /** 卦象与卦辞的白话讲解段落 */
+  overview: string[]
+  /** 逐爻白话：键为爻序（1-6；7＝用九/用六） */
+  yaoNotes: Record<string, string>
+  /** 收尾落地 */
+  takeaway: string
 }
 
 /** 爻位名：由位置（1-6，自下而上）与阴阳（0/1）得「初九」「六二」等 */

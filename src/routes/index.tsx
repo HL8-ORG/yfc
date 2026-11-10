@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { useMemo, useState } from 'react'
 import { HexFigure, TrigramFigure } from '~/components/HexFigure'
 import { TrigramPicker } from '~/components/TrigramPicker'
@@ -130,6 +130,28 @@ function ForgePage() {
                     <p className="mt-1 text-xs leading-6 text-ink-soft">
                       象曰：{revealed.yaos[activeYao - 1].xiang}
                     </p>
+                    {revealed.lecture?.yaoNotes?.[String(activeYao)] && (
+                      <p className="mt-2 text-[13px] leading-6 text-ink-soft">
+                        <b className="text-jade">白话</b> · {revealed.lecture.yaoNotes[String(activeYao)]}
+                      </p>
+                    )}
+                  </div>
+                )}
+                {revealed.lecture && (
+                  <div className="border-t border-ink/10 pt-3">
+                    <p className="text-sm font-bold leading-6 text-ink">
+                      {revealed.lecture.theme}
+                    </p>
+                    <p className="mt-1 text-[13px] leading-6 text-ink-soft">
+                      {revealed.lecture.takeaway}
+                    </p>
+                    <Link
+                      to="/codex"
+                      search={{ id: revealed.id }}
+                      className="mt-1 inline-block text-xs tracking-widest text-cinnabar hover:text-cinnabar-deep"
+                    >
+                      查看完整讲卦 →
+                    </Link>
                   </div>
                 )}
               </div>

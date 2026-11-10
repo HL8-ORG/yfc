@@ -43,7 +43,7 @@ export async function openSqlite(path: string): Promise<SqliteDb> {
 }
 
 /** 手工事务：BEGIN/COMMIT/ROLLBACK，两个运行时通用 */
-export async function inTransaction<T>(db: SqliteDb, fn: () => T): Promise<T> {
+export function inTransaction<T>(db: SqliteDb, fn: () => T): T {
   db.exec('BEGIN')
   try {
     const r = fn()

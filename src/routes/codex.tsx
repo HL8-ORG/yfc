@@ -114,7 +114,7 @@ function CodexPage() {
             <div>
               <div className="mb-1 text-xs font-bold tracking-widest text-cinnabar">六爻</div>
               <div className="flex flex-col divide-y divide-ink/5">
-                {detail.yaos.map((y) => (
+                {detail.yaos.map((y, i) => (
                   <div key={y.pos} className="py-2.5">
                     <div className="flex items-baseline gap-3">
                       <b className="w-12 shrink-0 text-cinnabar-deep">{y.pos}</b>
@@ -125,6 +125,11 @@ function CodexPage() {
                         象曰：{y.xiang}
                       </p>
                     )}
+                    {detail.lecture?.yaoNotes?.[String(i + 1)] && (
+                      <p className="ml-14 mt-1 rounded-lg bg-jade-mist/50 px-3 py-1.5 text-[13px] leading-6 text-ink-soft">
+                        <b className="text-jade">白话</b> · {detail.lecture.yaoNotes[String(i + 1)]}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -133,6 +138,23 @@ function CodexPage() {
               <b className="text-ink">公式速断：</b>
               {interpret(detail.upper, detail.lower).verdict.text}
             </div>
+            {detail.lecture && (
+              <div className="rounded-2xl border border-cinnabar/25 bg-paper-deep/40 p-5">
+                <div className="mb-2 flex items-baseline justify-between">
+                  <div className="text-sm font-bold tracking-[0.3em] text-cinnabar">讲卦 · 白话</div>
+                  <span className="text-xs text-ink-faint">整理自视频讲稿</span>
+                </div>
+                <p className="mb-3 text-base font-bold leading-7 text-ink">{detail.lecture.theme}</p>
+                {detail.lecture.overview.map((p, i) => (
+                  <p key={i} className="text-[15px] leading-7 text-ink">
+                    {p}
+                  </p>
+                ))}
+                <p className="mt-3 rounded-xl bg-cinnabar-mist/60 p-3 text-[15px] leading-7 text-ink">
+                  {detail.lecture.takeaway}
+                </p>
+              </div>
+            )}
           </div>
         </section>
       )}

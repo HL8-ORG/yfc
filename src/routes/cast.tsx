@@ -279,8 +279,18 @@ function CastResult({ view }: { view: CastView }) {
               <b className="text-cinnabar-deep">{m.pos}</b>
               <p className="mt-1 text-[15px] leading-7 text-ink">{m.text}</p>
               {m.xiang && <p className="mt-1 text-xs leading-6 text-ink-soft">象曰：{m.xiang}</p>}
+              {original?.lecture?.yaoNotes?.[String(m.posIndex)] && (
+                <p className="mt-2 rounded-lg bg-paper-card px-3 py-1.5 text-[13px] leading-6 text-ink-soft">
+                  <b className="text-jade">白话</b> · {original.lecture.yaoNotes[String(m.posIndex)]}
+                </p>
+              )}
             </div>
           ))
+        )}
+        {original?.lecture && (
+          <p className="text-sm leading-7 text-ink-soft">
+            <b className="text-cinnabar">本卦主旨</b> · {original.lecture.theme}
+          </p>
         )}
         {original && (
           <div className="border-t border-ink/10 pt-3 text-sm leading-7">
