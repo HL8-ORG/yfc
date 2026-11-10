@@ -69,7 +69,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           </header>
           <main>{children}</main>
           <footer className="mt-16 border-t border-ink/10 pt-4 text-center text-xs tracking-wider text-ink-faint">
-            易方策 v0.1 · 经文数据取自公有领域《周易》通行本 · 判词由规则引擎离线生成
+            易方策 v0.1 · 开发者 Abel-数字牧民 · 经文数据取自公有领域《周易》通行本 · 判词由规则引擎离线生成
           </footer>
         </div>
         {import.meta.env.DEV && <TanStackRouterDevtools position="bottom-right" />}

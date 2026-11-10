@@ -63,3 +63,7 @@ src/lib/server/             # SQLite 适配层 + Server Functions
 src/routes/                 # 四个页面（文件路由）
 scripts/seed.ts             # 数据库重建脚本（bun:sqlite）
 ```
+
+## 开发者
+
+**Abel-数字牧民**
